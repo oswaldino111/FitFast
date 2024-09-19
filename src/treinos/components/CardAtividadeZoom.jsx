@@ -27,7 +27,7 @@ AreaGradient.propTypes = {
   id: PropTypes.string.isRequired,
 };
 
-function CardAtividadesZoom({ title, value, interval, trend, image }) {
+function CardAtividadesZoom({ title, value, interval, trend, rep, image }) {
 
     const navigate = useNavigate();
     const labelColors = {
@@ -59,7 +59,7 @@ function CardAtividadesZoom({ title, value, interval, trend, image }) {
                 variant="outlined" 
                 slotProps={{
                   input: {
-                    startAdornment: <InputAdornment position="start">series de 15-12-10-8 com</InputAdornment>,
+                    startAdornment: <InputAdornment position="start">series de {rep} com</InputAdornment>,
                   },
                 }}
                 defaultValue={title} />
@@ -93,6 +93,7 @@ CardAtividadesZoom.propTypes = {
   trend: PropTypes.oneOf(['down', 'neutral', 'up']).isRequired,
   value: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
+  rep: PropTypes.string.isRequired,
 };
 
 export default CardAtividadesZoom;

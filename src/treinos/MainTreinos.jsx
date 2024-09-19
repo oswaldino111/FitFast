@@ -20,30 +20,35 @@ const data = [
     value: 'Peito',
     interval: '45 min (médio)',
     trend: 'up',
+    escolha: "peito"
   },
   {
       title: 'Terça-feira',
       value: 'Perna',
       interval: '45 min (médio)',
       trend: 'up',
+      escolha: "perna"
     },
     {
       title: 'Quarta-feira',
       value: 'Ombros',
       interval: '45 min (médio)',
       trend: 'up',
+      escolha: "ombro"
     },
     {
       title: 'Quinta-feira',
       value: 'Costas',
       interval: '45 min (médio)',
       trend: 'up',
+      escolha: "costas"
     } ,
     {
       title: 'Sexta-feira',
       value: 'Braços',
       interval: '45 min (médio)',
       trend: 'up',
+      escolha: "braco"
     }
 ]
 

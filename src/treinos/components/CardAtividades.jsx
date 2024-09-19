@@ -24,7 +24,7 @@ AreaGradient.propTypes = {
   id: PropTypes.string.isRequired,
 };
 
-function CardAtividades({ title, value, interval, trend }) {
+function CardAtividades({ title, value, interval, trend, escolha }) {
 
     const navigate = useNavigate();
     const labelColors = {
@@ -33,33 +33,41 @@ function CardAtividades({ title, value, interval, trend }) {
         neutral: 'default',
     };
 
+    const navegacao = (  ) => {
+
+      localStorage.setItem('treino', escolha);
+      navigate('/detalhes')
+
+    };
+    
+
     const color = labelColors[trend];
     const trendValues = { up: '+25%', down: '-25%', neutral: '+5%' };
 
     return (
-        <Card variant="outlined" sx={{ padding: "10px", height: '100%', flexGrow: 1, '&:hover': {background: "#e3e3e3"}}} onClick={() => navigate('/detalhes')}>
+        <Card variant="outlined" sx={{ padding: "10px", height: '100%', flexGrow: 1, '&:hover': {background: "#e3e3e3"}}} onClick={() => navegacao()}>
           <CardContent>
               <Typography component="h2" variant="subtitle2" gutterBottom>
                 {title}
               </Typography>
               <Stack
-              direction="column"
-              sx={{ justifyContent: 'space-between', flexGrow: '1', gap: 1 }}
+                direction="column"
+                sx={{ justifyContent: 'space-between', flexGrow: '1', gap: 1 }}
               >
               <Stack sx={{ justifyContent: 'space-between' }}>
                   <Stack
-                  direction="row"
-                  sx={{ justifyContent: 'space-between', alignItems: 'center' }}
+                    direction="row"
+                    sx={{ justifyContent: 'space-between', alignItems: 'center' }}
                   >
-                  <Typography variant="h4" component="p">
-                      {value}
+                    <Typography variant="h4" component="p">
+                        {value}
+                    </Typography>
+                    <Chip size="small" color={color} label={trendValues[trend]} />
+                    </Stack>
+                    <Typography variant="caption" sx={{ color: 'text.secondary' }}>
+                      {interval}
                   </Typography>
-                  <Chip size="small" color={color} label={trendValues[trend]} />
-                  </Stack>
-                  <Typography variant="caption" sx={{ color: 'text.secondary' }}>
-                  {interval}
-                  </Typography>
-              </Stack>
+                 </Stack>
               </Stack>
           </CardContent>
         </Card>
@@ -71,6 +79,7 @@ CardAtividades.propTypes = {
   title: PropTypes.string.isRequired,
   trend: PropTypes.oneOf(['down', 'neutral', 'up']).isRequired,
   value: PropTypes.string.isRequired,
+  escolha: PropTypes.string.isRequired,
 };
 
 export default CardAtividades;
