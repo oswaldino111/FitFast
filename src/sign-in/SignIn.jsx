@@ -16,8 +16,9 @@ import { styled } from '@mui/material/styles';
 import ForgotPassword from './ForgotPassword';
 import { GoogleIcon, FacebookIcon, SitemarkIcon } from '../icons/CustomIcons';
 import AppTheme from '../theme/AppTheme';
-import ColorModeSelect from '../theme/ColorModeSelect';
+import Requests from '../utils/Requests';
 import { useNavigate } from "react-router-dom";
+import { Paper } from '@mui/material';
 
 const Card = styled(MuiCard)(({ theme }) => ({
   display: 'flex',
@@ -82,6 +83,13 @@ export default function SignIn(props) {
     const email = document.getElementById('email');
     const password = document.getElementById('password');
 
+    const url = "https://us-central1-eztask-bi.cloudfunctions.net/PROCESSA_LOGIN";
+
+
+    const login = async() => {
+      return await Requests(url, "POST", {"user": email, "senha": password, "TIPO": "DADOS"});
+    };
+
     let isValid = true;
 
     if (!email.value || !/\S+@\S+\.\S+/.test(email.value)) {
@@ -100,8 +108,13 @@ export default function SignIn(props) {
     } else {
       setPasswordError(false);
       setPasswordErrorMessage('');
+      const retorno = login()
+      //if (retorno["isValid"] === true){
       navigate('home');
+      //}
+      
     }
+
     console.log(isValid);
     return isValid;
   };
@@ -110,9 +123,8 @@ export default function SignIn(props) {
     <AppTheme {...props}>
       <CssBaseline enableColorScheme />
       <SignInContainer direction="column" justifyContent="space-between">
-        <ColorModeSelect sx={{ position: 'fixed', top: '1rem', right: '1rem' }} />
         <Card variant="outlined">
-          <SitemarkIcon />
+          <img src="../logo.png" />
           <Typography
             component="h1"
             variant="h4"
@@ -202,6 +214,7 @@ export default function SignIn(props) {
               </span>
             </Typography>
           </Box>
+          {/**
           <Divider>ou</Divider>
           <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
             <Button
@@ -223,6 +236,7 @@ export default function SignIn(props) {
               Entre com o Facebook
             </Button>
           </Box>
+           */}
         </Card>
       </SignInContainer>
     </AppTheme>

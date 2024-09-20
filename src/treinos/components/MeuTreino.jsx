@@ -2,7 +2,7 @@ import * as React from 'react';
 import CssBaseline from '@mui/material/CssBaseline';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid2';
-import AppNavbar from '../../nav-bar/AppNavbar';
+import NewAppNavBar from '../../nav-bar/NewAppNavbar';
 import SideMenu from '../../dashboard/components/SideMenu';
 import AppTheme from '../../theme/AppTheme';
 import Copyright from '../../dashboard/internals/components/Copyright';
@@ -100,6 +100,57 @@ const data_costa = [
   }
 ]
 
+const data_bracos = [
+  {
+    title: '82kg',
+    value: 'TricepiS Extensao',
+    interval: '1 min (descanso)',
+    trend: 'up',
+    rep: "4x10 a 12",
+    image: 'https://www.mundoboaforma.com.br/wp-content/uploads/2021/07/triceps-nuca-com-halter.gif'
+  },
+  {
+    title: '40kg',
+    value: 'Tricepis testa',
+    interval: '1 min (descanso)',
+    trend: 'up',
+    rep: "4x10",
+    image: 'https://www.mundoboaforma.com.br/wp-content/uploads/2021/03/rosca-triceps-testa-deitado-no-banco-com-barra-tradicional.gif'
+   },
+  {
+    title: '50kg',
+    value: 'Tricepis Corda',
+    interval: '1 min (descanso)',
+    trend: 'up',
+    rep: "4x12",
+    image: 'https://www.mundoboaforma.com.br/wp-content/uploads/2021/07/triceps-puxada-no-pulley-com-corda.gif'
+  },
+  {
+    title: '32kg',
+    value: 'Rosca Scot com alteres',
+    interval: '1 min (descanso)',
+    trend: 'up',
+    rep: "4x12",
+    image: 'https://www.mundoboaforma.com.br/wp-content/uploads/2020/11/Rosca-Scott-com-halteres-unilateral.gif'
+  },
+  {
+    title: '50kg',
+    value: 'Rosca direta',
+    interval: '1 min (descanso)',
+    trend: 'up',
+    rep: "4x12",
+    image: 'https://www.blog.treinoemalta.com.br/wp-content/uploads/2023/07/Rosca-Alternada-com-Halteres.gif'
+  },
+  {
+    title: '50kg',
+    value: 'Rosca alternada',
+    interval: '1 min (descanso)',
+    trend: 'up',
+    rep: "4x12",
+    image: 'https://www.hipertrofia.org/blog/wp-content/uploads/2019/04/dumbbell-alternate-biceps-curl.gif'
+  }
+]
+
 const xThemeComponents = {
   ...chartsCustomizations,
   ...dataGridCustomizations,
@@ -112,14 +163,13 @@ export default function MeuTreino(props) {
   const tipo = localStorage.getItem('treino');
   console.log(tipo);
 
-  const dados = (tipo === 'costas' ? data_costa : data);
+  const dados = (tipo === 'costas' ? data_costa :  (tipo === 'braco' ? data_bracos : data) );
 
   return (
     <AppTheme {...props} themeComponents={xThemeComponents}>
         <CssBaseline enableColorScheme />
         <Box sx={{ display: 'flex' }}>
             <SideMenu />
-            <AppNavbar />
             <Box sx={{ padding: "10px", width: '100%', maxWidth: { sm: '100%', md: '1700px' } }}>
                 {/* cards */}
                 <Grid
@@ -136,6 +186,7 @@ export default function MeuTreino(props) {
                 </Grid>
                 <Copyright sx={{ my: 4 }} />
             </Box>
+            <NewAppNavBar />
         </Box>
     </AppTheme>
   );

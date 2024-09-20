@@ -14,8 +14,7 @@ export default function App() {
         <BrowserRouter>
             <React.Suspense fallback={<div className="container">Carregando...</div>}>
                 <Routes>
-                    <Route path="/" element={<SignIn />} />
-                    <Route index element={<Dashboard />} />
+                    <Route index element={<SignIn />} />
                     <Route path="/home" element={<Dashboard />} />
                     <Route path="/sign-up" element={<SignUp />} />
                     <Route path="/forgot-password" element={<ForgotPassword />} />

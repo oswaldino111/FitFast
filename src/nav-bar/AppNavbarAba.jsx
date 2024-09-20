@@ -33,9 +33,8 @@ const Toolbar = styled(MuiToolbar)({
   },
 });
 
-export default function AppNavbar() {
+export default function AppNavbarAba() {
 
-  const user = "Oswaldo";
   const navigate = useNavigate();
 
   return (
@@ -82,40 +81,15 @@ export default function AppNavbar() {
                   <NotificationsNoneIcon />
                 </IconButton>
               </Grid>
-              <Grid size={2}>
-                <Avatar sx={{ bgcolor: deepPurple[500] }}>{user[0]}</Avatar>
-              </Grid>
-              <Grid size={10}>
-                <Typography 
-                  variant="h6" 
-                  component="h1" 
-                  sx={{ color: 'white'}}>
-                  Bom dia, {user}! <br />
-                </Typography>
-                <Link 
+              <Grid size={2} alignItems="center" justifyContent="center" direction="column" display="flex">
+                <Stack direction="row" spacing={4} sx={{padding: "10px"}}>
+                  <Link 
                     href="#"
                     sx={{width: '10px', color: 'white'}}
                     onClick={() => alert("Ainda não fiz kkkk")}
                   > 
-                  Editar usuario
+                   Voltar
                 </Link>
-              </Grid>
-              <Grid size={12} alignItems="center" justifyContent="center" direction="column" display="flex">
-                <Stack direction="row" spacing={4} sx={{padding: "10px"}}>
-                  {/*
-                  <IconButton aria-label="delete" size="large">
-                    <ChatIcon />
-                  </IconButton>
-                  */}
-                  <IconButton 
-                      aria-label="treino" 
-                      bgcolor="white" 
-                      size="70px"
-                      sx={{border_radius: "80px", color: 'white'}}
-                      onClick={() => navigate('/treinos')}
-                  >
-                    <DirectionsRunIcon />
-                  </IconButton>
                 </Stack>
               </Grid>
             </Grid>

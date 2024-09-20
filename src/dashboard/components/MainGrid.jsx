@@ -3,9 +3,6 @@ import Grid from '@mui/material/Grid2';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Copyright from '../internals/components/Copyright';
-import HighlightedCard from './HighlightedCard';
-import PageViewsBarChart from './PageViewsBarChart';
-import SessionsChart from './SessionsChart';
 import StatCard from './StatCard';
 
 const data = [
@@ -46,7 +43,7 @@ export default function MainGrid() {
     <Box sx={{ width: '100%', maxWidth: { sm: '100%', md: '1700px' } }}>
       {/* cards */}
       <Typography component="h2" variant="h6" sx={{ mb: 2 }}>
-        Overview
+        Resumo
       </Typography>
       <Grid
         container
@@ -59,15 +56,6 @@ export default function MainGrid() {
             <StatCard {...card} />
           </Grid>
         ))}
-        <Grid size={{ xs: 12, sm: 6, lg: 3 }}>
-          <HighlightedCard />
-        </Grid>
-        <Grid size={{ sm: 12, md: 6 }}>
-          <SessionsChart />
-        </Grid>
-        <Grid size={{ sm: 12, md: 6 }}>
-          <PageViewsBarChart />
-        </Grid>
       </Grid>
       <Copyright sx={{ my: 4 }} />
     </Box>

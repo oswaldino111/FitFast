@@ -40,7 +40,7 @@ function CardAtividadesZoom({ title, value, interval, trend, rep, image }) {
     const trendValues = { up: '+25%', down: '-25%', neutral: '+5%' };
 
     return (
-        <Card variant="outlined" sx={{  m: '1rem', padding: "10px", height: '100%', flexGrow: 1, '&:hover': {background: "#e3e3e3"}}} onClick={() => navigate('/detalhes')}>
+        <Card variant="outlined" sx={{  m: '1rem', padding: "8px", height: '100%', flexGrow: 1, '&:hover': {background: "#e3e3e3"}}} onClick={() => navigate('/detalhes')}>
           <CardContent>
             <Box
               component="img"

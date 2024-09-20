@@ -11,13 +11,15 @@ export default function Copyright(props) {
       sx={[
         {
           color: 'text.secondary',
+          position: 'fixed', 
+          bottom: 0
         },
         ...(Array.isArray(props.sx) ? props.sx : [props.sx]),
       ]}
     >
       {'Copyright © '}
-      <Link color="inherit" href="https://mui.com/">
-        Sitemark
+      <Link color="inherit">
+        Oswaldo Veloso
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}

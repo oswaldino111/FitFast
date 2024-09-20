@@ -2,11 +2,11 @@ import * as React from 'react';
 import CssBaseline from '@mui/material/CssBaseline';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid2';
-import AppNavbar from '../nav-bar/AppNavbar';
-import SideMenu from '../dashboard/components/SideMenu';
+import NewAppNavBar from '../nav-bar/NewAppNavbar';
 import AppTheme from '../theme/AppTheme';
 import Copyright from '../dashboard/internals/components/Copyright';
 import CardAtividades from './components/CardAtividades';
+import AppNavbarAba from '../nav-bar/AppNavbarAba';
 import {
   chartsCustomizations,
   dataGridCustomizations,
@@ -64,10 +64,13 @@ export default function Treinos(props) {
     <AppTheme {...props} themeComponents={xThemeComponents}>
         <CssBaseline enableColorScheme />
         <Box sx={{ display: 'flex' }}>
-            <SideMenu />
-            <AppNavbar />
-            <Box sx={{ width: '100%', m: '4rem', maxWidth: { sm: '100%', md: '1700px' } }}>
+            <Box sx={{ width: '100%', m: '2rem', maxWidth: { sm: '100%', md: '1700px' } }}>
                 {/* cards */}
+                <AppNavbarAba />
+                <br/>
+                <br/>
+                <br/>
+                <br/>
                 <Grid
                     container
                     spacing={2}
@@ -82,6 +85,7 @@ export default function Treinos(props) {
                 </Grid>
                 <Copyright sx={{ my: 4 }} />
             </Box>
+            <NewAppNavBar />
         </Box>
     </AppTheme>
   );

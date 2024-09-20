@@ -45,7 +45,7 @@ function CardAtividades({ title, value, interval, trend, escolha }) {
     const trendValues = { up: '+25%', down: '-25%', neutral: '+5%' };
 
     return (
-        <Card variant="outlined" sx={{ padding: "10px", height: '100%', flexGrow: 1, '&:hover': {background: "#e3e3e3"}}} onClick={() => navegacao()}>
+        <Card variant="outlined" sx={{ padding: "20px 1px", height: '100%', flexGrow: 1, '&:hover': {background: "#e3e3e3"}}} onClick={() => navegacao()}>
           <CardContent>
               <Typography component="h2" variant="subtitle2" gutterBottom>
                 {title}

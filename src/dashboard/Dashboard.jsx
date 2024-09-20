@@ -4,11 +4,12 @@ import { alpha } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
-import AppNavbar from '../nav-bar/AppNavbar';
+import NewAppNavBar from '../nav-bar/NewAppNavbar';
 import Header from './components/Header';
 import MainGrid from './components/MainGrid';
-import SideMenu from './components/SideMenu';
+import AppNavbar from '../nav-bar/AppNavbar';
 import AppTheme from '../theme/AppTheme';
+import Grid from '@mui/material/Grid2';
 import {
   chartsCustomizations,
   dataGridCustomizations,
@@ -27,34 +28,43 @@ export default function Dashboard(props) {
   return (
     <AppTheme {...props} themeComponents={xThemeComponents}>
       <CssBaseline enableColorScheme />
-      <Box sx={{ display: 'flex' }}>
-        <SideMenu />
-        <AppNavbar />
-        {/* Main content */}
-        <Box
-          component="main"
-          sx={(theme) => ({
-            flexGrow: 1,
-            backgroundColor: theme.vars
-              ? `rgba(${theme.vars.palette.background.defaultChannel} / 1)`
-              : alpha(theme.palette.background.default, 1),
-            overflow: 'auto',
-          })}
-        >
-          <Stack
-            spacing={2}
-            sx={{
-              alignItems: 'center',
-              mx: 3,
-              pb: 10,
-              mt: { xs: 8, md: 0 },
-            }}
-          >
-            <Header />
-            <MainGrid />
-          </Stack>
-        </Box>
-      </Box>
-    </AppTheme>
+        <Grid spacing={2}>
+          <Grid size={12}>
+            <AppNavbar />
+          </Grid>
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          {/* Main content */}
+          <Grid size={12}>
+            <Box
+              component="main"
+              sx={(theme) => ({
+                flexGrow: 1,
+                backgroundColor: theme.vars
+                  ? `rgba(${theme.vars.palette.background.defaultChannel} / 1)`
+                  : alpha(theme.palette.background.default, 1),
+                overflow: 'auto',
+              })}
+            >
+              <Stack
+                spacing={2}
+                sx={{
+                  alignItems: 'center',
+                  mx: 3,
+                  pb: 10,
+                  mt: { xs: 8, md: 0 },
+                }}
+              >
+                <Header />
+                <MainGrid />
+              </Stack>
+            </Box>
+          </Grid>
+        </Grid>
+        <NewAppNavBar />
+      </AppTheme>
   );
 }
