@@ -60,6 +60,7 @@ function CardAtividadesZoom({ title, value, interval, trend, rep, image }) {
                 slotProps={{
                   input: {
                     startAdornment: <InputAdornment position="start">series de {rep} com</InputAdornment>,
+                    endAdornment: "kg",
                   },
                 }}
                 defaultValue={title} />

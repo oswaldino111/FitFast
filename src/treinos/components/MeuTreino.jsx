@@ -102,7 +102,7 @@ const data_costa = [
 
 const data_bracos = [
   {
-    title: '82kg',
+    title: '24',
     value: 'TricepiS Extensao',
     interval: '1 min (descanso)',
     trend: 'up',
@@ -110,7 +110,7 @@ const data_bracos = [
     image: 'https://www.mundoboaforma.com.br/wp-content/uploads/2021/07/triceps-nuca-com-halter.gif'
   },
   {
-    title: '40kg',
+    title: '40',
     value: 'Tricepis testa',
     interval: '1 min (descanso)',
     trend: 'up',
@@ -118,7 +118,7 @@ const data_bracos = [
     image: 'https://www.mundoboaforma.com.br/wp-content/uploads/2021/03/rosca-triceps-testa-deitado-no-banco-com-barra-tradicional.gif'
    },
   {
-    title: '50kg',
+    title: '50',
     value: 'Tricepis Corda',
     interval: '1 min (descanso)',
     trend: 'up',
@@ -126,7 +126,7 @@ const data_bracos = [
     image: 'https://www.mundoboaforma.com.br/wp-content/uploads/2021/07/triceps-puxada-no-pulley-com-corda.gif'
   },
   {
-    title: '32kg',
+    title: '32',
     value: 'Rosca Scot com alteres',
     interval: '1 min (descanso)',
     trend: 'up',
@@ -134,15 +134,15 @@ const data_bracos = [
     image: 'https://www.mundoboaforma.com.br/wp-content/uploads/2020/11/Rosca-Scott-com-halteres-unilateral.gif'
   },
   {
-    title: '50kg',
+    title: '50',
     value: 'Rosca direta',
     interval: '1 min (descanso)',
     trend: 'up',
     rep: "4x12",
-    image: 'https://www.blog.treinoemalta.com.br/wp-content/uploads/2023/07/Rosca-Alternada-com-Halteres.gif'
+    image: 'https://www.hipertrofia.org/blog/wp-content/uploads/2019/04/ez-barbell-curl.gif'
   },
   {
-    title: '50kg',
+    title: '50',
     value: 'Rosca alternada',
     interval: '1 min (descanso)',
     trend: 'up',

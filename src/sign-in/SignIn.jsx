@@ -124,7 +124,18 @@ export default function SignIn(props) {
       <CssBaseline enableColorScheme />
       <SignInContainer direction="column" justifyContent="space-between">
         <Card variant="outlined">
-          <img src="../logo.png" />
+          <Box
+              component="img"
+              sx={{
+                height: 130,
+                width: 130,
+                maxHeight: { xs: 233, md: 167 },
+                maxWidth: { xs: 350, md: 250 },
+                display: 'flex',
+              }}
+              alt="logo"
+              src="../logo.png"
+            />
           <Typography
             component="h1"
             variant="h4"
