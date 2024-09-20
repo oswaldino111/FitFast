@@ -54,8 +54,7 @@ function CardAtividadesZoom({ title, value, interval, trend, rep, image }) {
               src={image}
             />
               <TextField 
-                id="outlined-basic" 
-                label="Outlined" 
+                id="outlined-basic"
                 variant="outlined" 
                 slotProps={{
                   input: {

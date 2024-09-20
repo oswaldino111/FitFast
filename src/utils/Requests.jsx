@@ -3,20 +3,21 @@ import PropTypes from 'prop-types';
 // Realiza requisição async
 function Requests( url, modo, dados ) {
 
+
+
     const realiza_requisição = async () => { 
+        console.log(dados);
         const settings = {
           method: modo,
           headers: {
-            Accept: 'application/json',
-            'Content-Type': 'application/json',
-            'Access-Control-Allow-Origin': '*',
+            'Accept': 'application/json, text/plain, */*',
+            'Content-Type': 'application/json'
           },
-            body: dados
+            body: JSON.stringify(dados)
         };
         try {
           const fetchResponse = await fetch(url, settings);
           const data = await fetchResponse.json();
-          console.log(data);
           return await data;
       } catch (e) {
           console.log(e);
@@ -31,6 +32,7 @@ function Requests( url, modo, dados ) {
 Requests.propTypes = {
     url: PropTypes.func.isRequired,
     modo: PropTypes.func.isRequired,
+    dados: PropTypes.func.isRequired,
 }
 
 

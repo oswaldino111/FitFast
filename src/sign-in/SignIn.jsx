@@ -66,6 +66,9 @@ export default function SignIn(props) {
   const [open, setOpen] = React.useState(false);
   const navigate = useNavigate();
 
+  const [emailUser, setEmail] = React.useState("");
+  const [senhaUser, setSenha] = React.useState("");
+
   const handleClose = () => {
     setOpen(false);
   };
@@ -79,7 +82,7 @@ export default function SignIn(props) {
     });
   };
 
-  const validateInputs = ( navigate ) => {
+  const validateInputs = async ( navigate ) => {
     const email = document.getElementById('email');
     const password = document.getElementById('password');
 
@@ -87,7 +90,7 @@ export default function SignIn(props) {
 
 
     const login = async() => {
-      return await Requests(url, "POST", {"user": email, "senha": password, "TIPO": "DADOS"});
+      return await Requests(url, "POST", {"USUARIO": emailUser, "SENHA": senhaUser, "TIPO": "DADOS"});
     };
 
     let isValid = true;
@@ -108,10 +111,18 @@ export default function SignIn(props) {
     } else {
       setPasswordError(false);
       setPasswordErrorMessage('');
-      const retorno = login()
-      //if (retorno["isValid"] === true){
-      navigate('home');
-      //}
+
+      let retorno = await login();
+
+      if (retorno.hasOwnProperty("NOME")){
+        localStorage.setItem('nome', retorno["NOME"]);
+        navigate('home');
+      } else {
+        console.log("aQUI")
+        console.log(retorno)
+        setPasswordError(true);
+        setPasswordErrorMessage('Dados incorretos para Login, tente novamente!');
+      }
       
     }
 
@@ -166,6 +177,7 @@ export default function SignIn(props) {
                 autoComplete="email"
                 autoFocus
                 required
+                onChange={(e) => setEmail(e.target.value)}
                 fullWidth
                 variant="outlined"
                 color={emailError ? 'error' : 'primary'}
@@ -192,6 +204,7 @@ export default function SignIn(props) {
                 type="password"
                 id="password"
                 autoComplete="current-password"
+                onChange={(e) => setSenha(e.target.value)}
                 autoFocus
                 required
                 fullWidth

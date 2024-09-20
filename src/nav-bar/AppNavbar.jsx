@@ -35,7 +35,7 @@ const Toolbar = styled(MuiToolbar)({
 
 export default function AppNavbar() {
 
-  const user = "Oswaldo";
+  const user = localStorage.getItem('nome');
   const navigate = useNavigate();
 
   return (
