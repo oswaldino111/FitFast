@@ -65,13 +65,20 @@ export default function SignIn(props) {
   const [passwordErrorMessage, setPasswordErrorMessage] = React.useState('');
   const [open, setOpen] = React.useState(false);
   const navigate = useNavigate();
+  
 
   const [emailUser, setEmail] = React.useState("");
   const [senhaUser, setSenha] = React.useState("");
+  const [lembrar, setLembrar] = React.useState(false);
 
   const handleClose = () => {
     setOpen(false);
   };
+
+  const handleLembrar = (e) => {
+    console.log(lembrar);
+    setLembrar(!lembrar);
+  }
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -116,9 +123,12 @@ export default function SignIn(props) {
 
       if (retorno.hasOwnProperty("NOME")){
         localStorage.setItem('nome', retorno["NOME"]);
+        localStorage.setItem('user', emailUser);
+        if (lembrar === true) {
+          localStorage.setItem('key', retorno["key"]);
+        }
         navigate('home');
       } else {
-        console.log("aQUI")
         console.log(retorno)
         setPasswordError(true);
         setPasswordErrorMessage('Dados incorretos para Login, tente novamente!');
@@ -129,6 +139,13 @@ export default function SignIn(props) {
     console.log(isValid);
     return isValid;
   };
+
+  React.useEffect(() => {
+    if (localStorage.getItem('key') && localStorage.getItem('user') ){
+      navigate('home');
+    }
+  });
+
 
   return (
     <AppTheme {...props}>
@@ -213,7 +230,7 @@ export default function SignIn(props) {
               />
             </FormControl>
             <FormControlLabel
-              control={<Checkbox value="remember" color="primary" />}
+              control={<Checkbox value="remember" color="primary" onClick={(e) => handleLembrar(e)}/>}
               label="Lembrar"
             />
             <ForgotPassword open={open} handleClose={handleClose} />

@@ -33,7 +33,7 @@ const Toolbar = styled(MuiToolbar)({
   },
 });
 
-export default function AppNavbarAba() {
+export default function AppNavbarAba(props) {
 
   const navigate = useNavigate();
 
@@ -86,7 +86,7 @@ export default function AppNavbarAba() {
                   <Link 
                     href="#"
                     sx={{width: '10px', color: 'white'}}
-                    onClick={() => alert("Ainda não fiz kkkk")}
+                    onClick={() => navigate(props.local)}
                   > 
                    Voltar
                 </Link>

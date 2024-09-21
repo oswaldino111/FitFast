@@ -17,6 +17,8 @@ import Link from '@mui/material/Link';
 import DashboardRoundedIcon from '@mui/icons-material/DashboardRounded';
 import { useNavigate } from 'react-router-dom';
 
+import Requests from '../utils/Requests';
+
 const Toolbar = styled(MuiToolbar)({
   width: '100%',
   padding: '12px',
