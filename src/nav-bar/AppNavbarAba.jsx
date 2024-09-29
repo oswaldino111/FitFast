@@ -60,26 +60,15 @@ export default function AppNavbarAba(props) {
             width: '100%',
           }}
         >
-          <Stack direction="row" spacing={1} sx={{ justifyContent: 'center' }}>
+          <Stack direction="row" spacing={1}>
             <Grid container spacing={2}>
-              <Grid size={10}>
+              <Grid size={12}>
                 <Typography 
                   variant="h4" 
                   component="h1" 
-                  sx={{ color: 'white', }}>
+                  sx={{ color: 'white', justifyContent: 'center'}}>
                   FitFastNow
                 </Typography>
-              </Grid>
-              <Grid size={2}>
-                <IconButton 
-                    aria-label="treino" 
-                    color="secundary" 
-                    size="70px"
-                    sx={{border_radius: "80px", color: 'white'}}
-                    onClick={() => alert("Ainda não tem notificação")}
-                >
-                  <NotificationsNoneIcon />
-                </IconButton>
               </Grid>
               <Grid size={2} alignItems="center" justifyContent="center" direction="column" display="flex">
                 <Stack direction="row" spacing={4} sx={{padding: "10px"}}>

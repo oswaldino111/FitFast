@@ -7,7 +7,7 @@ import Stack from '@mui/material/Stack';
 import NewAppNavBar from '../nav-bar/NewAppNavbar';
 import Header from './components/Header';
 import MainGrid from './components/MainGrid';
-import AppNavbar from '../nav-bar/AppNavbar';
+import AppNavbarAba from '../nav-bar/AppNavbarAba';
 import AppTheme from '../theme/AppTheme';
 import Grid from '@mui/material/Grid2';
 import {
@@ -30,7 +30,7 @@ export default function Dashboard(props) {
       <CssBaseline enableColorScheme />
         <Grid spacing={2}>
           <Grid size={12}>
-            <AppNavbar />
+          <AppNavbarAba local='/home'/>
           </Grid>
           <br />
           <br />

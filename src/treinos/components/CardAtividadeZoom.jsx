@@ -98,7 +98,7 @@ function CardAtividadesZoom({ ID,  title, value, interval, trend, rep, image }) 
                     endAdornment: <CheckIcon 
                                         sx={{padding: "2px", color: colorButton}}
                                         onClick={() => handleChange()}
-                                        onMouseLeave= {() => setColor("black") }
+                                        onMouseLeave= {() => setColor("red") }
                                         onMouseOver={() => setColor("green") } />
                   },
                 }}

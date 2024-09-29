@@ -3,17 +3,33 @@ import BottomNavigation from '@mui/material/BottomNavigation';
 import BottomNavigationAction from '@mui/material/BottomNavigationAction';
 import HomeIcon from '@mui/icons-material/Home';
 import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
-import HelpIcon from '@mui/icons-material/Help';
-import DirectionsRunIcon from '@mui/icons-material/DirectionsRun';
 import MenuIcon from '@mui/icons-material/Menu';
 import Paper from '@mui/material/Paper';
 import { useNavigate } from 'react-router-dom';
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
+import ExitToAppIcon from '@mui/icons-material/ExitToApp';
+import HandymanIcon from '@mui/icons-material/Handyman';
 
 export default function NewAppNavBar() {
   const [value, setValue] = React.useState('recents');
   const navigate = useNavigate();
   const handleChange = (event, newValue) => {
     setValue(newValue);
+  };
+
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const open = Boolean(anchorEl);
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+  const logout = () => {
+    localStorage.removeItem("key");
+    navigate('/');
   };
 
   return (
@@ -26,24 +42,33 @@ export default function NewAppNavBar() {
           icon={<HomeIcon />}
         />
         <BottomNavigationAction
-          onClick={() => console.log("compras")}
+          onClick={() => navigate("/pagamentos")}
           label="Assinar"
           value="assinar"
           icon={<MonetizationOnIcon />}
         />
         <BottomNavigationAction
-          onClick={() => console.log("ajuda")}
-          label="Ajuda"
-          value="ajuda"
-          icon={<HelpIcon />}
-        />
-        <BottomNavigationAction
-          onClick={() => console.log("menu")}
+          onClick={handleClick}
+          aria-controls={open ? 'basic-menu' : undefined}
+          aria-haspopup="true"
+          aria-expanded={open ? 'true' : undefined}
           label="Menu"
           value="menu"
           icon={<MenuIcon />}
         />
       </BottomNavigation>
+      <Menu
+        id="basic-menu"
+        anchorEl={anchorEl}
+        open={open}
+        onClose={handleClose}
+        MenuListProps={{
+          'aria-labelledby': 'basic-button',
+        }}
+      >
+        <MenuItem onClick={() => navigate('/caracteristicas')}><HandymanIcon/> Configurações</MenuItem>
+        <MenuItem onClick={() => logout}><ExitToAppIcon/> Sair</MenuItem>
+      </Menu>
     </Paper>
   );
 }
